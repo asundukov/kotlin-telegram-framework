@@ -1,6 +1,6 @@
-# Kotlin telegram bot library
+# Kotlin telegram bot framework
 
-Kotlin telegram bot library for fast developing stateful bots.
+Kotlin telegram bot framework for fast developing stateful bots.
 
 Currently library in active developing.
 
