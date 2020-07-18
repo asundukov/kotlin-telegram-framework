@@ -112,7 +112,7 @@ class TelegramApi {
 
         val response = httpClient.execute(httpPost)
 
-        val r = String(response.entity.content.readAllBytes())
+        val r = response.entity.content.reader().readText()
 
         return objectMapper
                 .readerFor(TgResponseMessage::class.java)
