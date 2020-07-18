@@ -199,11 +199,11 @@ class TelegramApi {
     private fun execute(request: HttpRequestBase): BufferedEntity {
         val response = httpClient.execute(request)
 
-        val content = response.entity.content.readAllBytes()
+        val content = response.entity.content.reader().readText()
 
-        log.debug("RESPONSE {}", String(content))
+        log.debug("RESPONSE {}", content)
 
-        return BufferedEntity(response.statusLine.statusCode, content)
+        return BufferedEntity(response.statusLine.statusCode, content.toByteArray())
     }
 
     private fun getUrl(token: String, methodName: String): String {
