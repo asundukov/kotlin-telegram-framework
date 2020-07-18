@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/asundukov/kotlin-telegram-bot.svg)](https://jitpack.io/#asundukov/kotlin-telegram-bot)
+
 # Kotlin telegram bot framework
 
 Kotlin telegram bot framework for fast developing stateful bots.
