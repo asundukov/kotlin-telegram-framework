@@ -2,7 +2,7 @@ package io.cutebot.telegram.client.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.cutebot.telegram.client.model.photo.TgPhoto
+import io.cutebot.telegram.client.model.photo.TgChatPhoto
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 data class TgChat(
@@ -28,6 +28,6 @@ data class TgChat(
         val allMembersAreAdministrators: Boolean?,
 
         @field: JsonProperty("photo")
-        val photo: TgPhoto?
+        val chatPhoto: TgChatPhoto?
 
 )

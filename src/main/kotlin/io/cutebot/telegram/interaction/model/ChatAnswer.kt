@@ -1,7 +1,10 @@
 package io.cutebot.telegram.interaction.model
 
 import io.cutebot.telegram.client.TelegramApi
-import io.cutebot.telegram.interaction.model.action.ChatAnswerSendAction
+import io.cutebot.telegram.client.model.keyboard.TgKeyboard
+import io.cutebot.telegram.client.model.keyboard.TgKeyboardButton
+import io.cutebot.telegram.client.model.keyboard.TgKeyboardRemove
+import io.cutebot.telegram.client.model.keyboard.TgReplyKeyboardMarkup
 import io.cutebot.telegram.interaction.model.message.ChatAnswerSendDocument
 import io.cutebot.telegram.interaction.model.message.ChatAnswerSendPhoto
 import io.cutebot.telegram.interaction.model.message.ChatAnswerSendText
@@ -17,16 +20,16 @@ interface ChatAnswer {
             return ChatAnswerNothing()
         }
 
-        fun text(text: String): ChatAnswer {
-            return ChatAnswerSendText(text)
+        fun text(text: String, keyboard: TgKeyboard = TgKeyboardRemove()): ChatAnswer {
+            return ChatAnswerSendText(text, keyboard)
         }
 
-        fun photo(file: File, caption: String = ""): ChatAnswer {
-            return ChatAnswerSendPhoto(file, caption)
+        fun photo(file: File, caption: String = "", keyboard: TgKeyboard = TgKeyboardRemove()): ChatAnswer {
+            return ChatAnswerSendPhoto(file, caption, keyboard)
         }
 
-        fun document(file: File, caption: String = ""): ChatAnswer {
-            return ChatAnswerSendDocument(file, caption)
+        fun document(file: File, caption: String = "", keyboard: TgKeyboard = TgKeyboardRemove()): ChatAnswer {
+            return ChatAnswerSendDocument(file, caption, keyboard)
         }
 
         fun actionTextTyping(): ChatAnswer {

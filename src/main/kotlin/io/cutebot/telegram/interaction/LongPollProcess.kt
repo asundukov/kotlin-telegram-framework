@@ -1,6 +1,7 @@
 package io.cutebot.telegram.interaction
 
 import io.cutebot.telegram.bot.Bot
+import io.cutebot.telegram.bot.model.RawMessage
 import io.cutebot.telegram.client.TelegramApi
 import io.cutebot.telegram.exception.BotGetUpdatesConflictException
 import io.cutebot.telegram.exception.TgBotNotFoundException
@@ -16,6 +17,14 @@ class LongPollProcess(
     override fun run() {
         var offset = 0
         var needSleep = 0L
+
+        val botInfo = api.getMe(bot.getToken())
+        val botUserName = "@" + botInfo.userName!!
+
+        log.info("Running bot {}...", botUserName)
+
+        bot.getCommands()?.let { api.setCommands(bot.getToken(), it) }
+
         while (ok && !this.isInterrupted) {
             try {
                 val tgResponseUpdate = api.getUpdates(bot.getToken(), offset, longPollTimeout, 50)
@@ -23,7 +32,7 @@ class LongPollProcess(
                     offset = update.updateId + 1
                     when {
                         update.message != null -> {
-                            val result = bot.handleMessage(update.message)
+                            val result = bot.handleMessage(RawMessage(update.message, api, bot.getToken()))
                             result.fireAction(
                                     api = api,
                                     token = bot.getToken(),
@@ -35,17 +44,15 @@ class LongPollProcess(
                             api.answerInlineQuery(token = bot.getToken(), answerInlineQuery = result)
                         }
                         update.callbackQuery != null -> {
-                            val result = bot.handleCallbackQuery(update.callbackQuery)
-                            TODO()
+                            //TODO()
                         }
                     }
                 }
             } catch (e: TgBotNotFoundException) {
-                error("Bot not found via telegram request. Dismissed from request pool. Token: {}",
-                        bot.getToken().substring(0, 15) + "...")
+                error("Bot {} not found via telegram request by token, dismissed from request pool", botUserName)
                 return
             } catch (e: BotGetUpdatesConflictException) {
-                error("Conflict detected. Going pause 120 sec. Token {}", bot.getToken().substring(0, 15)+"...")
+                error("Conflict detected. Going pause 120 sec. Bot {}", botUserName)
                 needSleep = 120000
             } catch (e: Exception) {
                 error(e.message, e)

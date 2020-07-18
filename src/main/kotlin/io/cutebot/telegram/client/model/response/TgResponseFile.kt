@@ -1,5 +1,5 @@
 package io.cutebot.telegram.client.model.response
 
-import io.cutebot.telegram.client.model.TgFile
+import io.cutebot.telegram.client.model.TgFilePath
 
-class TgResponseFile: TgResponse<TgFile>()
+class TgResponseFile: TgResponse<TgFilePath>()

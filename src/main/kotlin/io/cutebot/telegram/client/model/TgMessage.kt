@@ -28,10 +28,16 @@ data class TgMessage (
         val forwardFromMessageId: Long?,
 
         @field: JsonProperty("forward_signature")
-        val forwardSignature: Long?,
+        val forwardSignature: String?,
 
         @field: JsonProperty("forward_date")
         val forwardDate: Long?,
+
+        @field: JsonProperty("forward_sender_name")
+        val forwardSenderName: String?,
+
+        @field: JsonProperty("via_bot")
+        val viaBot: TgUser?,
 
         @field: JsonProperty("reply_to_message")
         val replyToMessage: TgMessage?,

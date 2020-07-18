@@ -2,22 +2,22 @@ package io.cutebot.telegram.client.model.photo
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
+import io.cutebot.telegram.client.model.TgFile
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-data class TgPhotoSize (
+class TgPhotoSize (
 
-    @field: JsonProperty("file_id")
-    val fileId: String,
+        @field: JsonProperty
+        val width: Int,
 
-    @field: JsonProperty("file_unique_id")
-    val fileUniqueId: String,
+        @field: JsonProperty
+        val height: Int,
 
-    @field: JsonProperty
-    val width: Int,
+        @field: JsonProperty("file_size")
+        val fileSize: Int?,
 
-    @field: JsonProperty
-    val height: Int,
+        fileId: String,
 
-    @field: JsonProperty("file_size")
-    val fileSize: Int?
-)
+        fileUniqueId: String
+
+): TgFile(fileId, fileUniqueId)

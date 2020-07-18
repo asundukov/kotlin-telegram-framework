@@ -2,7 +2,7 @@ package io.cutebot.telegram.client.model.photo
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class TgPhoto(
+data class TgChatPhoto(
 
         @field: JsonProperty("small_file_id")
         val smallFileId: String?,
@@ -15,4 +15,5 @@ data class TgPhoto(
 
         @field: JsonProperty("big_file_unique_id")
         val bigFileUniqueId: String?
+
 )

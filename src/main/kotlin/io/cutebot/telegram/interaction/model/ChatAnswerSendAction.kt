@@ -1,8 +1,7 @@
-package io.cutebot.telegram.interaction.model.action
+package io.cutebot.telegram.interaction.model
 
 import io.cutebot.telegram.client.TelegramApi
 import io.cutebot.telegram.client.model.TgChatAction
-import io.cutebot.telegram.interaction.model.ChatAnswer
 
 
 class ChatAnswerSendAction private constructor(

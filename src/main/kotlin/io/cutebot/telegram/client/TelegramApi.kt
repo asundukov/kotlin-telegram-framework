@@ -4,7 +4,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import io.cutebot.telegram.client.model.TgBotCommands
 import io.cutebot.telegram.client.model.TgChat
 import io.cutebot.telegram.client.model.TgChatAction
-import io.cutebot.telegram.client.model.TgFile
+import io.cutebot.telegram.client.model.TgFilePath
 import io.cutebot.telegram.client.model.TgMessage
 import io.cutebot.telegram.client.model.TgResponseUpdate
 import io.cutebot.telegram.client.model.TgSendAnimation
@@ -25,6 +25,7 @@ import org.apache.http.client.methods.HttpGet
 import org.apache.http.client.methods.HttpPost
 import org.apache.http.client.methods.HttpRequestBase
 import org.apache.http.entity.ContentType
+import org.apache.http.entity.ContentType.APPLICATION_JSON
 import org.apache.http.entity.ContentType.TEXT_PLAIN
 import org.apache.http.entity.StringEntity
 import org.apache.http.entity.mime.MultipartEntity
@@ -51,7 +52,7 @@ class TelegramApi {
         return objectMapper.readValue(response.content, TgResponseChat::class.java).result!!
     }
 
-    fun getFile(token: String, fileId: String): TgFile {
+    fun getFile(token: String, fileId: String): TgFilePath {
         val response = getMethod(token, "getFile?file_id=$fileId")
         return objectMapper.readValue(response.content, TgResponseFile::class.java).result!!
     }
@@ -76,7 +77,11 @@ class TelegramApi {
         reqEntity.addPart("photo", FileBody(sendPhoto.photo))
         reqEntity.addPart("chat_id", StringBody(sendPhoto.chatId.toString(), TEXT_PLAIN))
         sendPhoto.caption?.let {
-            reqEntity.addPart("caption", StringBody(it, TEXT_PLAIN))
+            reqEntity.addPart("caption", StringBody(it, ContentType.create(TEXT_PLAIN.mimeType, Charsets.UTF_8)))
+            reqEntity.addPart("parse_mode", StringBody(sendPhoto.parseMode, TEXT_PLAIN))
+        }
+        sendPhoto.replyMarkup?.let {
+            reqEntity.addPart("reply_markup", StringBody(objectMapper.writeValueAsString(it), APPLICATION_JSON))
         }
 
         return postMultipartData(reqEntity, url)
@@ -88,6 +93,15 @@ class TelegramApi {
 
         reqEntity.addPart("document", FileBody(document.document))
         reqEntity.addPart("chat_id", StringBody(document.chatId.toString()))
+
+        document.caption?.let {
+            reqEntity.addPart("caption", StringBody(it, ContentType.create(TEXT_PLAIN.mimeType, Charsets.UTF_8)))
+            reqEntity.addPart("parse_mode", StringBody(document.parseMode, TEXT_PLAIN))
+        }
+        document.replyMarkup?.let {
+            reqEntity.addPart("reply_markup", StringBody(objectMapper.writeValueAsString(it), APPLICATION_JSON))
+        }
+
         return postMultipartData(reqEntity, url)
     }
 
