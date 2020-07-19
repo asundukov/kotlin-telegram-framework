@@ -2,9 +2,7 @@ package io.cutebot.telegram.interaction.model
 
 import io.cutebot.telegram.client.TelegramApi
 import io.cutebot.telegram.client.model.keyboard.TgKeyboard
-import io.cutebot.telegram.client.model.keyboard.TgKeyboardButton
 import io.cutebot.telegram.client.model.keyboard.TgKeyboardRemove
-import io.cutebot.telegram.client.model.keyboard.TgReplyKeyboardMarkup
 import io.cutebot.telegram.interaction.model.message.ChatAnswerSendDocument
 import io.cutebot.telegram.interaction.model.message.ChatAnswerSendPhoto
 import io.cutebot.telegram.interaction.model.message.ChatAnswerSendText
