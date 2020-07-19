@@ -4,7 +4,7 @@
 
 Kotlin telegram bot framework for fast developing stateful bots.
 
-Currently library in active developing.
+Framework is in active developing currently.
 
 *I will be grateful for any helpful pull requests*
 
