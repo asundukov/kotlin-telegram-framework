@@ -126,7 +126,7 @@ class StartCommand: Command {
 
 
 ### Maven dependency
-```
+```xml
 <dependency>
     <groupId>com.github.asundukov.kotlin-telegram-bot</groupId>
     <artifactId>kotlin-telegram-framework</artifactId>
