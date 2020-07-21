@@ -17,7 +17,7 @@ You can see samples at https://github.com/asundukov/kotlin-telegram-bot/tree/mas
 
 
 #### As telegram bot api library
-```koltin
+```Kotlin
 fun main(args: Array<String>) {
     val api = TelegramApi()
     val updates = api.getUpdates(token, offset, limit, timeout)
