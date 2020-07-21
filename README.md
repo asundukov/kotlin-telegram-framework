@@ -16,6 +16,15 @@ Framework is in active developing currently.
 You can see samples at https://github.com/asundukov/kotlin-telegram-bot/tree/master/samples
 
 
+#### As telegram bot api library
+```koltin
+fun main(args: Array<String>) {
+    val api = TelegramApi()
+    val updates = api.getUpdates(token, offset, limit, timeout)
+    api.sendMessage(token, data)
+}
+```
+
 #### Text bot
 [Sources](https://github.com/asundukov/kotlin-telegram-bot/tree/master/samples/text-bot/src/main/kotlin/io/cutebot/telegram/samples/textbot)
 ```Kotlin
