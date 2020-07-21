@@ -2,7 +2,7 @@
 
 # Kotlin telegram bot framework
 
-Kotlin telegram bot framework for fast developing stateful bots.
+Kotlin telegram framework for fast developing stateful bots.
 
 Framework is in active developing currently.
 
