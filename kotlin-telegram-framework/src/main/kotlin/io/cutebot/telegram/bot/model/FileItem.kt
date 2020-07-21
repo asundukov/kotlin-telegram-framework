@@ -7,7 +7,6 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
 import java.net.URL
-import kotlin.random.Random
 
 abstract class FileItem internal constructor(
         private val api: TelegramApi,
