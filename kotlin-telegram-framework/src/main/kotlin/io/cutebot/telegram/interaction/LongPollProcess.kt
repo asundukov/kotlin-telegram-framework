@@ -6,6 +6,7 @@ import io.cutebot.telegram.client.TelegramApi
 import io.cutebot.telegram.exception.BotGetUpdatesConflictException
 import io.cutebot.telegram.exception.TgBotNotFoundException
 import org.slf4j.LoggerFactory
+import kotlin.reflect.full.declaredMemberFunctions
 
 class LongPollProcess(
         private val longPollTimeout: Int,
@@ -22,6 +23,13 @@ class LongPollProcess(
         val botUserName = "@" + botInfo.userName!!
 
         log.info("Running bot {}...", botUserName)
+
+        val inlineHandlerExists = bot::class.declaredMemberFunctions
+                .firstOrNull { it.name == "handleInlineQuery" } != null
+
+        if (inlineHandlerExists && botInfo.supportsInlineQueries != true) {
+            log.warn("Bot $botUserName doesn't support inline queries. Please check bot settings at @BotFather.")
+        }
 
         bot.getCommands()?.let { api.setCommands(bot.getToken(), it) }
 

@@ -3,8 +3,11 @@ package io.cutebot.telegram.bot.model
 import io.cutebot.telegram.client.TelegramApi
 import io.cutebot.telegram.client.model.TgFile
 import io.cutebot.telegram.client.model.TgFilePath
+import java.io.File
+import java.io.FileOutputStream
 import java.io.InputStream
 import java.net.URL
+import kotlin.random.Random
 
 abstract class FileItem internal constructor(
         private val api: TelegramApi,
@@ -18,23 +21,37 @@ abstract class FileItem internal constructor(
     private var downloadUrl: String? = null
     private var tgFilePath: TgFilePath? = null
 
+    fun getFile(): File {
+        val file = File.createTempFile(tmpPrefix, null)
+        file.deleteOnExit()
+
+        val out = FileOutputStream(file)
+        getInputStream().transferTo(out)
+
+        return file
+    }
+
     fun getInputStream(): InputStream {
         return URL(getRemotePath()).openStream();
     }
 
     fun getRemotePath(): String {
         if (downloadUrl == null) {
-            downloadUrl = api.getDownloadUrl(token, getFile().filePath)
+            downloadUrl = api.getDownloadUrl(token, getTgFile().filePath)
         }
         return downloadUrl!!
 
     }
 
-    private fun getFile(): TgFilePath {
+    private fun getTgFile(): TgFilePath {
         if (tgFilePath == null) {
             tgFilePath = api.getFile(token, fileId)
         }
         return tgFilePath!!
+    }
+
+    companion object {
+        private const val tmpPrefix = "bot-tmp-"
     }
 
 }

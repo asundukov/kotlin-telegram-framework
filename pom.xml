@@ -12,6 +12,14 @@
 
     <modules>
         <module>kotlin-telegram-framework</module>
+        <module>samples/text-bot</module>
+        <module>samples/stateful-bot</module>
+        <module>samples/inline-bot</module>
+        <module>samples/photo-bot</module>
     </modules>
+
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
 
 </project>

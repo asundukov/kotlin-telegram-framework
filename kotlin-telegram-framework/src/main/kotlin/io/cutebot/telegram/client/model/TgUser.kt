@@ -21,5 +21,8 @@ data class TgUser (
         val userName: String?,
 
         @field: JsonProperty("language_code")
-        val languageCode: String?
+        val languageCode: String?,
+
+        @field: JsonProperty("supports_inline_queries")
+        val supportsInlineQueries: Boolean?
 )

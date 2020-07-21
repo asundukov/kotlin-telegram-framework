@@ -1,23 +1,18 @@
 package io.cutebot.telegram.bot
 
-import io.cutebot.telegram.BotHandler
+import io.cutebot.telegram.bot.model.RawMessage
 import io.cutebot.telegram.client.model.TgBotCommands
 import io.cutebot.telegram.client.model.inline.TgAnswerInlineQuery
 import io.cutebot.telegram.client.model.inline.TgInlineQuery
+import io.cutebot.telegram.interaction.model.ChatAnswer
 
-interface Bot: BotHandler {
+interface Bot {
+
     fun getToken(): String
 
-    fun handleInlineQuery(inlineQuery: TgInlineQuery): TgAnswerInlineQuery {
-        return TgAnswerInlineQuery("")
-    }
+    fun handleInlineQuery(inlineQuery: TgInlineQuery): TgAnswerInlineQuery = TgAnswerInlineQuery(inlineQuery.id)
 
-    /**
-     * Commands to setup bot's system menu on startup.
-     * Pass null to not change it
-     */
-    fun getCommands(): TgBotCommands? {
-        return TgBotCommands(emptyList())
-    }
+    fun handleMessage(message: RawMessage): ChatAnswer = ChatAnswer.noAnswer()
 
+    fun getCommands(): TgBotCommands? = null
 }
