@@ -19,19 +19,14 @@ You can see samples at https://github.com/asundukov/kotlin-telegram-bot/tree/mas
 #### Text bot
 [Sources](https://github.com/asundukov/kotlin-telegram-bot/tree/master/samples/text-bot/src/main/kotlin/io/cutebot/telegram/samples/textbot)
 ```Kotlin
-class Application
 fun main(args: Array<String>) {
-
     val botToken = args[0]
-
-    BotRunner()
-            .run(TextBot(botToken))
+    BotRunner().run(TextBot(botToken))
 }
 
 class TextBot(
         private val token: String
 ): SimpleTextBot() {
-
     private val counter = AtomicInteger(0)
 
     override fun handleText(text: String, from: TgUser, chat: TgChat): String {
@@ -42,7 +37,6 @@ class TextBot(
         return token
     }
 }
-
 ```
 
 #### Stateful bot
