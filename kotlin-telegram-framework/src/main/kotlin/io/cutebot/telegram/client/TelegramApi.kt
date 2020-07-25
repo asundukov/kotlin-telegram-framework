@@ -32,14 +32,24 @@ import org.apache.http.entity.mime.MultipartEntity
 import org.apache.http.entity.mime.content.FileBody
 import org.apache.http.entity.mime.content.StringBody
 import org.apache.http.impl.client.HttpClientBuilder
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager
 import org.slf4j.LoggerFactory
 
 
-class TelegramApi {
+class TelegramApi(
+        maxConnections: Int = 5000
+) {
+
+    private val connectionManager = PoolingHttpClientConnectionManager()
+    init {
+        connectionManager.maxTotal = maxConnections
+        connectionManager.defaultMaxPerRoute = maxConnections
+    }
 
     private val objectMapper = jacksonObjectMapper()
     private val httpClient = HttpClientBuilder
             .create()
+            .setConnectionManager(connectionManager)
             .build()
 
     fun getMe(token: String): TgUser {
