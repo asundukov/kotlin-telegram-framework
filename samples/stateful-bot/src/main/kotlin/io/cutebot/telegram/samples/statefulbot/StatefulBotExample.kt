@@ -7,9 +7,7 @@ class StatefulBotExample(
         private val token: String,
         currentBlock: BotBlock
 ): StatefulBot(currentBlock) {
-
     override fun getToken(): String {
         return token
     }
-
 }
