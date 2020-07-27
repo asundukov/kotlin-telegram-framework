@@ -16,11 +16,11 @@ class Photo internal constructor(
     }
 
     fun large(): PhotoSize {
-        return photoSizes.maxBy { it.width }!!
+        return photoSizes.maxBy { it.data.width }!!
     }
 
     fun small(): PhotoSize {
-        return photoSizes.minBy { it.width }!!
+        return photoSizes.minBy { it.data.width }!!
     }
 
 }

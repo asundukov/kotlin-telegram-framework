@@ -9,8 +9,6 @@ class PhotoSize internal constructor(
         token: String
 ): FileItem(api, token, tgPhotoSize) {
 
-    val width: Int = tgPhotoSize.width
-    val height: Int = tgPhotoSize.height
-    val size: Int? = tgPhotoSize.fileSize
+    val data: PhotoData = PhotoData(tgPhotoSize.width, tgPhotoSize.height, tgPhotoSize.fileSize)
 
 }
