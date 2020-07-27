@@ -15,11 +15,23 @@ class TgInlineQueryResultPhoto (
         @field: JsonProperty("thumb_url")
         val thumbUrl: String,
 
+        @field: JsonProperty("photo_width")
+        val photoWidth: Int,
+
+        @field: JsonProperty("photo_height")
+        val photoHeight: Int,
+
         @field: JsonProperty
         val title: String = "",
 
         @field: JsonProperty
+        val caption: String? = null,
+
+        @field: JsonProperty
         val description: String? = null,
+
+        @field: JsonProperty("parse_mode")
+        val parseMode: String = "HTML",
 
         @field: JsonProperty("input_message_content")
         val inputMessageContent: TgInputMessageContent? = null,

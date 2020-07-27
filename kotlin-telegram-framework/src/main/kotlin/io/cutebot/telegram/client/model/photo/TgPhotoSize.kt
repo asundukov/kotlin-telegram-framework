@@ -14,7 +14,7 @@ class TgPhotoSize (
         val height: Int,
 
         @field: JsonProperty("file_size")
-        val fileSize: Int?,
+        val fileSize: Long?,
 
         fileId: String,
 
