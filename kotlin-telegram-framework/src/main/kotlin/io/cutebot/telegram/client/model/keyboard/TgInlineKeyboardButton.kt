@@ -15,5 +15,8 @@ data class TgInlineKeyboardButton (
         val callbackData: String? = null,
 
         @field: JsonProperty("switch_inline_query")
-        val switchInlineQuery: String? = null
+        val switchInlineQuery: String? = null,
+
+        @field: JsonProperty("switch_inline_query_current_chat")
+        val switchInlineQueryCurrentChat: String? = null
 )
