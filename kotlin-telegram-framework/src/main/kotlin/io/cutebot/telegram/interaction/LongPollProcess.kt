@@ -51,6 +51,9 @@ class LongPollProcess(
                             val result = bot.handleInlineQuery(update.inlineQuery)
                             api.answerInlineQuery(token = bot.getToken(), answerInlineQuery = result)
                         }
+                        update.chosenInlineResult != null -> {
+                            bot.handleChosenInlineQuery(update.chosenInlineResult)
+                        }
                         update.callbackQuery != null -> {
                             //TODO()
                         }

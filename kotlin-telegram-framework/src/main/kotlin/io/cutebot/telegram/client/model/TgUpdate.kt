@@ -13,19 +13,19 @@ data class TgUpdate (
         @field: JsonProperty
         val message: TgMessage?,
 
-//        @field: JsonProperty("edited_message")
-//        val editedMessage: TgMessage?,
-//
-//        @field: JsonProperty("channel_post")
-//        val channelPost: TgMessage?,
-//
+        @field: JsonProperty("edited_message")
+        val editedMessage: TgMessage?,
+
+        @field: JsonProperty("channel_post")
+        val channelPost: TgMessage?,
+
         @field: JsonProperty("inline_query")
         val inlineQuery: TgInlineQuery?,
 
         @field: JsonProperty("callback_query")
-        val callbackQuery: TgCallbackQuery?
-//
-//        @field: JsonProperty("chosen_inline_result")
-//        val chosenInlineResult: TgChosenInlineResult?
+        val callbackQuery: TgCallbackQuery?,
+
+        @field: JsonProperty("chosen_inline_result")
+        val chosenInlineResult: TgChosenInlineResult?
         
 )
