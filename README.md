@@ -130,7 +130,7 @@ class StartCommand: Command {
 <dependency>
     <groupId>com.github.asundukov.kotlin-telegram-bot</groupId>
     <artifactId>kotlin-telegram-framework</artifactId>
-    <version>1.0.1-beta-1</version>
+    <version>1.0.1-beta-5</version>
 </dependency>
 
 ```
