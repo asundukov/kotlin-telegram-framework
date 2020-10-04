@@ -7,4 +7,5 @@ class PhotoMessage(
         photos: List<TgPhotoSize>
 ): Message(message) {
     val photo: Photo = Photo(photos, message.telegramApi, message.botToken)
+    val message: String = message.caption ?: ""
 }
