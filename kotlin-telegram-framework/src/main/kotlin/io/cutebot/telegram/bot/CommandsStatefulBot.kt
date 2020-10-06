@@ -4,7 +4,7 @@ import io.cutebot.telegram.bot.block.BotBlock
 import io.cutebot.telegram.bot.command.Command
 import io.cutebot.telegram.bot.commandextractor.CommandExtractor
 import io.cutebot.telegram.bot.commandextractor.DefaultCommandExtractor
-import io.cutebot.telegram.bot.model.RawMessage
+import io.cutebot.telegram.bot.model.message.RawMessage
 import io.cutebot.telegram.client.model.TgBotCommand
 import io.cutebot.telegram.client.model.TgBotCommands
 import io.cutebot.telegram.interaction.model.ChatAnswer
@@ -21,7 +21,9 @@ abstract class CommandsStatefulBot(
             .toMap()
 
     override fun handleMessage(message: RawMessage): ChatAnswer {
-        if (message.text != null && commandExtractor.isCommand(message.text)) {
+        if (message.text != null
+                && message.from != null && message.from.id == message.chat.id
+                && commandExtractor.isCommand(message.text)) {
             val (command, query) = commandExtractor.extractCommand(message.text)
 
             val commandBlock = commandsMap[command]

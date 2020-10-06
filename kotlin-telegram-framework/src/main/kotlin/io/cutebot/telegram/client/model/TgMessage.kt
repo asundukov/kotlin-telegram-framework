@@ -57,10 +57,13 @@ data class TgMessage (
         @field: JsonProperty("caption")
         val caption: String?,
 
+        @field: JsonProperty("document")
+        val document: TgDocument?,
+
         @field: JsonProperty("photo")
         val photo: List<TgPhotoSize>?,
 
-        @field: JsonProperty("document")
-        val document: TgDocument?
+        @field: JsonProperty("video")
+        val video: TgVideo?
 
 )

@@ -1,7 +1,7 @@
 package io.cutebot.telegram.interaction
 
 import io.cutebot.telegram.bot.Bot
-import io.cutebot.telegram.bot.model.RawMessage
+import io.cutebot.telegram.bot.model.message.RawMessage
 import io.cutebot.telegram.client.TelegramApi
 import io.cutebot.telegram.exception.BotGetUpdatesConflictException
 import io.cutebot.telegram.exception.TgBotNotFoundException

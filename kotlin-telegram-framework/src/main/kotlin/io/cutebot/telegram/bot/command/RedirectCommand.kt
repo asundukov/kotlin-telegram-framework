@@ -1,7 +1,7 @@
 package io.cutebot.telegram.bot.command
 
 import io.cutebot.telegram.bot.block.BotBlock
-import io.cutebot.telegram.bot.model.RawMessage
+import io.cutebot.telegram.bot.model.message.RawMessage
 
 class RedirectCommand(
         private val botBlock: BotBlock,

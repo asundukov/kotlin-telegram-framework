@@ -2,7 +2,7 @@ package io.cutebot.telegram.samples.inline
 
 
 import io.cutebot.telegram.bot.Bot
-import io.cutebot.telegram.bot.model.RawMessage
+import io.cutebot.telegram.bot.model.message.RawMessage
 import io.cutebot.telegram.client.model.TgChosenInlineResult
 import io.cutebot.telegram.client.model.inline.TgAnswerInlineQuery
 import io.cutebot.telegram.client.model.inline.TgInlineQuery

@@ -1,6 +1,6 @@
 package io.cutebot.telegram.bot.block
 
-import io.cutebot.telegram.bot.model.TextMessage
+import io.cutebot.telegram.bot.model.message.TextMessage
 import io.cutebot.telegram.interaction.model.ChatAnswer
 
 class DoNothingBotBlock: BotTextBlock {
