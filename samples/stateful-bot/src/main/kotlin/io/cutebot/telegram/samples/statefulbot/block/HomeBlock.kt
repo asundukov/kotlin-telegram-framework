@@ -2,7 +2,7 @@ package io.cutebot.telegram.samples.statefulbot.block
 
 import io.cutebot.telegram.bot.block.BotBlock
 import io.cutebot.telegram.bot.block.BotTextBlock
-import io.cutebot.telegram.bot.model.TextMessage
+import io.cutebot.telegram.bot.model.message.TextMessage
 import io.cutebot.telegram.client.model.keyboard.builder.ReplyKeyboardSimpleBuilder
 import io.cutebot.telegram.interaction.model.ChatAnswer
 import io.cutebot.telegram.samples.statefulbot.Hero

@@ -1,10 +1,11 @@
-package io.cutebot.telegram.bot.model
+package io.cutebot.telegram.bot.model.message
 
 import io.cutebot.telegram.client.TelegramApi
 import io.cutebot.telegram.client.model.TgChat
 import io.cutebot.telegram.client.model.TgDocument
 import io.cutebot.telegram.client.model.TgMessage
 import io.cutebot.telegram.client.model.TgUser
+import io.cutebot.telegram.client.model.TgVideo
 import io.cutebot.telegram.client.model.photo.TgPhotoSize
 
 class RawMessage(
@@ -31,4 +32,5 @@ class RawMessage(
     val caption: String? = tgMessage.caption
     val photo: List<TgPhotoSize>? = tgMessage.photo
     val document: TgDocument? = tgMessage.document
+    val video: TgVideo? = tgMessage.video
 }

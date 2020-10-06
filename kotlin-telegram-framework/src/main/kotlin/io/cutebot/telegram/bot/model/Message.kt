@@ -1,5 +1,9 @@
 package io.cutebot.telegram.bot.model
 
+import io.cutebot.telegram.bot.model.message.DocumentMessage
+import io.cutebot.telegram.bot.model.message.PhotoMessage
+import io.cutebot.telegram.bot.model.message.RawMessage
+import io.cutebot.telegram.bot.model.message.TextMessage
 import io.cutebot.telegram.client.TelegramApi
 import io.cutebot.telegram.client.model.TgMessage
 import java.util.Calendar

@@ -4,10 +4,7 @@ import io.cutebot.telegram.bot.block.BotBlock
 import io.cutebot.telegram.bot.command.Command
 import io.cutebot.telegram.bot.commandextractor.CommandExtractor
 import io.cutebot.telegram.bot.commandextractor.DefaultCommandExtractor
-import io.cutebot.telegram.bot.model.RawMessage
-import io.cutebot.telegram.bot.model.settings.ChatMessagesStrategy
-import io.cutebot.telegram.bot.model.settings.ChatMessagesStrategy.ALL
-import io.cutebot.telegram.bot.model.settings.ChatMessagesStrategy.IGNORE
+import io.cutebot.telegram.bot.model.message.RawMessage
 import io.cutebot.telegram.client.model.TgBotCommand
 import io.cutebot.telegram.client.model.TgBotCommands
 import io.cutebot.telegram.interaction.model.ChatAnswer

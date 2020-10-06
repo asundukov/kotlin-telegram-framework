@@ -1,6 +1,6 @@
 package io.cutebot.telegram.bot
 
-import io.cutebot.telegram.bot.model.RawMessage
+import io.cutebot.telegram.bot.model.message.RawMessage
 import io.cutebot.telegram.client.model.TgChat
 import io.cutebot.telegram.client.model.TgUser
 import io.cutebot.telegram.interaction.model.ChatAnswer
