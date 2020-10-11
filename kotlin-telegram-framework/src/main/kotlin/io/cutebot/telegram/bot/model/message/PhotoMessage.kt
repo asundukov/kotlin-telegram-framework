@@ -1,6 +1,5 @@
 package io.cutebot.telegram.bot.model.message
 
-import io.cutebot.telegram.bot.model.Message
 import io.cutebot.telegram.bot.model.Photo
 import io.cutebot.telegram.client.model.photo.TgPhotoSize
 

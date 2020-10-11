@@ -5,6 +5,7 @@ import io.cutebot.telegram.client.model.TgBotCommands
 import io.cutebot.telegram.client.model.TgChat
 import io.cutebot.telegram.client.model.TgChatAction
 import io.cutebot.telegram.client.model.TgFilePath
+import io.cutebot.telegram.client.model.TgForwardMessage
 import io.cutebot.telegram.client.model.TgMessage
 import io.cutebot.telegram.client.model.TgResponseUpdate
 import io.cutebot.telegram.client.model.TgSendAnimation
@@ -138,6 +139,11 @@ class TelegramApi(
 
     fun sendMessage(token: String, sendMessage: TgSendTextMessage): TgMessage {
         val response = postMethod(token, sendMessage, "sendMessage")
+        return objectMapper.readValue(response.content, TgResponseMessage::class.java).result!!
+    }
+
+    fun forwardMessage(token: String, forwardMessage: TgForwardMessage): TgMessage {
+        val response = postMethod(token, forwardMessage, "forwardMessage")
         return objectMapper.readValue(response.content, TgResponseMessage::class.java).result!!
     }
 

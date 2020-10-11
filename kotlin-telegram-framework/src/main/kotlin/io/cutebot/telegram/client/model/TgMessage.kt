@@ -64,6 +64,24 @@ data class TgMessage (
         val photo: List<TgPhotoSize>?,
 
         @field: JsonProperty("video")
-        val video: TgVideo?
+        val video: TgVideo?,
+
+        @field: JsonProperty("video_note")
+        val videoNote: TgVideoNote?,
+
+        @field: JsonProperty("voice")
+        val voice: TgVoice?,
+
+        @field: JsonProperty("contact")
+        val contact: TgContact?,
+
+        @field: JsonProperty("location")
+        val location: TgLocation?,
+
+        @field: JsonProperty("venue")
+        val venue: TgVenue?,
+
+        @field: JsonProperty("audio")
+        val audio: TgAudio?
 
 )

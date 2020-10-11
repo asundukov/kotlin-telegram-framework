@@ -1,11 +1,17 @@
 package io.cutebot.telegram.bot.model.message
 
 import io.cutebot.telegram.client.TelegramApi
+import io.cutebot.telegram.client.model.TgAudio
 import io.cutebot.telegram.client.model.TgChat
+import io.cutebot.telegram.client.model.TgContact
 import io.cutebot.telegram.client.model.TgDocument
+import io.cutebot.telegram.client.model.TgLocation
 import io.cutebot.telegram.client.model.TgMessage
 import io.cutebot.telegram.client.model.TgUser
+import io.cutebot.telegram.client.model.TgVenue
 import io.cutebot.telegram.client.model.TgVideo
+import io.cutebot.telegram.client.model.TgVideoNote
+import io.cutebot.telegram.client.model.TgVoice
 import io.cutebot.telegram.client.model.photo.TgPhotoSize
 
 class RawMessage(
@@ -33,4 +39,10 @@ class RawMessage(
     val photo: List<TgPhotoSize>? = tgMessage.photo
     val document: TgDocument? = tgMessage.document
     val video: TgVideo? = tgMessage.video
+    val videoNote: TgVideoNote? = tgMessage.videoNote
+    val voice: TgVoice? = tgMessage.voice
+    val audio: TgAudio? = tgMessage.audio
+    val contact: TgContact? = tgMessage.contact
+    val location: TgLocation? = tgMessage.location
+    val venue: TgVenue? = tgMessage.venue
 }

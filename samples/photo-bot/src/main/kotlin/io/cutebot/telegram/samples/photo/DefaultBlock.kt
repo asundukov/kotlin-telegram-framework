@@ -1,6 +1,7 @@
 package io.cutebot.telegram.samples.photo
 
 import io.cutebot.telegram.bot.block.BotBlock
+import io.cutebot.telegram.bot.block.BotTextBlock
 import io.cutebot.telegram.bot.model.message.DocumentMessage
 import io.cutebot.telegram.bot.model.message.PhotoMessage
 import io.cutebot.telegram.bot.model.message.TextMessage
@@ -11,7 +12,7 @@ import java.io.File
 
 class DefaultBlock(
         private var receivedFile: File? = null
-): BotBlock {
+): BotTextBlock {
 
     override fun getAnswer(): ChatAnswer {
         return if (receivedFile != null) {

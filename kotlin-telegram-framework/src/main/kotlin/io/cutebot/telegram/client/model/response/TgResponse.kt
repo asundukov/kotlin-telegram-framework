@@ -1,14 +1,19 @@
 package io.cutebot.telegram.client.model.response
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 open class TgResponse<T> {
 
     @field: JsonProperty
-    var ok: Boolean? = null
+    val ok: Boolean? = null
 
     @field: JsonProperty
-    var result: T? = null
+    val result: T? = null
+
+    @field: JsonProperty
+    val description: String? = null
 
 
     override fun toString(): String {

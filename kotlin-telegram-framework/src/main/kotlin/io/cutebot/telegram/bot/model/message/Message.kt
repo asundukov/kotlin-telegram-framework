@@ -1,14 +1,13 @@
-package io.cutebot.telegram.bot.model
+package io.cutebot.telegram.bot.model.message
 
-import io.cutebot.telegram.bot.model.message.DocumentMessage
-import io.cutebot.telegram.bot.model.message.PhotoMessage
-import io.cutebot.telegram.bot.model.message.RawMessage
-import io.cutebot.telegram.bot.model.message.TextMessage
+import io.cutebot.telegram.bot.model.Chat
+import io.cutebot.telegram.bot.model.User
 import io.cutebot.telegram.client.TelegramApi
 import io.cutebot.telegram.client.model.TgMessage
 import java.util.Calendar
 
 abstract class Message internal constructor(message: RawMessage) {
+    val id: Long = message.messageId
     val date: Calendar = Calendar.getInstance()
     val user: User? = User.create(message.from)
     val chat: Chat = Chat.create(message.chat)
